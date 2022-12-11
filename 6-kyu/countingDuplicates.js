@@ -1,8 +1,8 @@
-function duplicateCount(text){
-    const lettersObj = text.split('').reduce((obj,letter) => {
-      letter = letter.toLowerCase(); 
-      (letter in obj)? obj[letter]++ : obj[letter] = 1;  
-      return obj; 
-    }, {}); 
-    return Object.values(lettersObj).filter(num => num > 1).length; 
-  }
+  function duplicateCount(text){
+    text = text.toLowerCase(); 
+    const letterCountObj = {}; 
+    for (const letter of text) {
+      (letter in letterCountObj)? letterCountObj[letter]++ : letterCountObj[letter] = 1; 
+    }
+    return Object.values(letterCountObj).filter(num => num > 1).length;  
+    }
